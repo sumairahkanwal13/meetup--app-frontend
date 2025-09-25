@@ -4,7 +4,6 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import EventCards from './components/EventCard'
 import EventList from './components/EventList'
-import './App.css'
 import EventDetails from "./components/EventsDetailed";
 import Header from './components/Header'
 import Footer from "./components/Footer"

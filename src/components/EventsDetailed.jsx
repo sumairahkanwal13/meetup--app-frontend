@@ -3,7 +3,7 @@ import useFetch from "../useFetch";
 
 const EventDetails = () => {
     const { id } = useParams();
-    const { data: event, loading, error } = useFetch(`http://localhost:3000/events/${id}`);
+    const { data: event, loading, error } = useFetch(`https://meetup-app-orcin.vercel.app/events/${id}`);
 
     if(loading) return <p>Loading....</p>
     if(error) return <p>error occurred whille fetching data.</p>
