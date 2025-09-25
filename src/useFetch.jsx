@@ -5,7 +5,7 @@ const useFetch = (url, initialData) => {
   const [error, setError] = useState(null);
   useEffect(() => {
     setLoading(true);
-    fetch(url)
+    fetch("https://meetup-app-orcin.vercel.app/events")
       .then((res) => res.json())
       .then((data) => {
         setData(data);
