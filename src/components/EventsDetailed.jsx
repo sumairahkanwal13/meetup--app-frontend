@@ -79,7 +79,7 @@ const EventDetails = () => {
 
         
         <div className="col-md-4 mt-3 mt-md-0">
-          <div className="card shadow p-4 sticky-top mt-2">
+          <div className="card shadow p-4 sticky-top mt-4">
             <h4>{event.price ? `$${event.price}` : "Free"}</h4>
             <p>
               <strong>Date: </strong>
@@ -95,7 +95,7 @@ const EventDetails = () => {
             </p>
             
             <p>
-              <strong>Organizer: </strong>{event.organizer || "Unknown"}
+              <strong>Organizer: </strong>{event.organizer}
               </p>
 
             <AddRsvp eventId={id} />

@@ -22,8 +22,10 @@ const AddRsvp = ({eventsId}) =>{
 
                 if(response.ok){
                     setMessage("RSVP Successfully!")
+                    setName("")
+                    setEmail("")
                 }else{
-                    setMessage("Failed to RSVP.")
+                    setMessage("Failed to RSVP. Please try again.")
                 }
         }catch(error){
             console.log(error)
@@ -41,7 +43,7 @@ const AddRsvp = ({eventsId}) =>{
                 <br />
                 <input type="text" name="Email" value={email} onChange={(event) => setEmail(event.target.value)} className="form-control mb-2" />
                 <br /><br />
-                <button type="submit">RSVP</button>
+                <button type="submit" className="btn btn-primary">RSVP</button>
                 {message && <p className="mt-2">{message}</p> }
 
             </form>
