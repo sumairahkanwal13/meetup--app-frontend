@@ -8,6 +8,7 @@ import EventDetails from "./components/EventsDetailed";
 import Header from './components/Header'
 import Footer from "./components/Footer"
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddRsvp from './components/AddRsvpForm'
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<EventList />} />
           <Route path="/events/:id" element={<EventDetails />} />
+          <Route path='/events/:eventsId/rsvp' element={<AddRsvp />} />
         </Routes>
       </main>
       <Footer />

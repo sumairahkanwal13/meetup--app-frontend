@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import useFetch from "../useFetch";
+import AddRsvp from "./AddRsvpForm";
 
 const EventDetails = () => {
   const { id } = useParams();
@@ -47,9 +48,9 @@ const EventDetails = () => {
           <h4>Additional Information</h4>
           <p>
             <strong>Speakers: </strong>
-            {event.speaker && event.speaker.length > 0 ? (
+            {event.speakers && event.speakers.length > 0 ? (
               <ul>
-                {event.speaker.map((spk, index) => (
+                {event.speakers.map((spk, index) => (
                   <li key={index}>{spk}</li>
                 ))}
               </ul>
@@ -78,7 +79,7 @@ const EventDetails = () => {
 
         
         <div className="col-md-4 mt-3 mt-md-0">
-          <div className="card shadow p-4 sticky-top">
+          <div className="card shadow p-4 sticky-top mt-2">
             <h4>{event.price ? `$${event.price}` : "Free"}</h4>
             <p>
               <strong>Date: </strong>
@@ -92,7 +93,12 @@ const EventDetails = () => {
               <strong>Venue: </strong>
               {event.venue}
             </p>
-            <button className="btn btn-primary w-100">RSVP</button>
+            
+            <p>
+              <strong>Organizer: </strong>{event.organizer || "Unknown"}
+              </p>
+
+            <AddRsvp eventId={id} />
           </div>
         </div>
       </div>
