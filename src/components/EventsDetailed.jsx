@@ -30,7 +30,7 @@ const EventDetails = () => {
           </p>
           <p>
             <strong>Time: </strong>
-            {event.time || "To be announced"}
+            {event.time}
           </p>
           <p>
             <strong>Type: </strong>
@@ -86,7 +86,7 @@ const EventDetails = () => {
             </p>
             <p>
               <strong>Time: </strong>
-              {event.time || "TBA"}
+              {event.time}
             </p>
             <p>
               <strong>Venue: </strong>
