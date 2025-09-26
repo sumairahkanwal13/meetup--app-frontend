@@ -3,34 +3,46 @@ import { useState } from "react";
 import EventCards from "./EventCard";
 
 const EventList = () => {
-  const { data: events, loading, error } = useFetch("https://meetup-app-orcin.vercel.app/events",);
+  const { data: events, loading, error } = useFetch(
+    "https://meetup-app-orcin.vercel.app/events", []
+  );
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState("Both");
 
   if (loading) return <p>Loading.....</p>;
   if (error) return <p>Error occurred while fetching data.</p>;
 
-  const filteredEvent = events.filter((event) => {
-    let matchFilter = true;
-    let matchSearch = true;
+  // 👇 Safely handle events (if undefined, use [])
+  const filteredEvent = Array.isArray(events)
+    ? events.filter((event) => {
+        let matchFilter = true;
+        let matchSearch = true;
 
-    if (filterType !== "Both") {
-      matchFilter = event.type.toLowerCase() === filterType.toLowerCase();
-    }
+        if (filterType !== "Both") {
+          matchFilter =
+            event?.type?.toLowerCase() === filterType.toLowerCase();
+        }
 
-    const query = searchQuery.toLowerCase();
+        const query = searchQuery.toLowerCase();
 
-    const titleMatch = event.title && event.title.toLowerCase().includes(query);
-    const tagMatch = event.tags && event.tags.some((tag) => tag.toLowerCase().includes(query));
+        const titleMatch = event?.title
+          ?.toLowerCase()
+          .includes(query);
 
-    matchSearch = titleMatch || tagMatch;
+        const tagMatch = Array.isArray(event?.tags)
+          ? event.tags.some((tag) =>
+              tag?.toLowerCase().includes(query)
+            )
+          : false;
 
-    return matchFilter && matchSearch;
-  });
+        matchSearch = titleMatch || tagMatch;
+
+        return matchFilter && matchSearch;
+      })
+    : [];
 
   return (
     <div className="container mt-4">
-      
       <div className="mb-4 d-flex flex-column flex-md-row justify-content-between gap-3">
         <select
           className="form-select w-100 w-md-25"
@@ -51,7 +63,6 @@ const EventList = () => {
         />
       </div>
 
-      
       <div className="row">
         {filteredEvent.length > 0 ? (
           filteredEvent.map((event) => (

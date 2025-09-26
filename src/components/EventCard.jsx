@@ -8,7 +8,7 @@ const EventCards = ({event}) => {
         <div className="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
         <div className="card h-100" >
            <img
-        src={event.image || "https://via.placeholder.com/3000"}
+        src={event.image}
         alt={event.title}
         className="card-img-top rounded"
       />
