@@ -3,7 +3,7 @@ import { useState } from "react";
 import EventCards from "./EventCard";
 
 const EventList = () => {
-  const { data: events, loading, error } = useFetch("https://meetup-app-orcin.vercel.app/events", []);
+  const { data: events, loading, error } = useFetch("https://meetup-app-orcin.vercel.app/events",);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterType, setFilterType] = useState("Both");
 
