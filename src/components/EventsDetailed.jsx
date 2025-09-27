@@ -47,9 +47,9 @@ const EventDetails = () => {
 
           <h4>Speakers:</h4>
           {event.speakers && event.speakers.length > 0 ? (
-            <div>
+            <div className="row">
               {event.speakers.map((spk, index) => (
-                <div>
+                <div key={index} className="col-md-4 text-center mb-3" >
                   <img src={spk.image}
                   alt={spk.name || spk}
                   className="img-fluid rounded-circle mb-2"
