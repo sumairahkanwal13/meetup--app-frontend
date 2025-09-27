@@ -45,19 +45,25 @@ const EventDetails = () => {
           <h4>Details</h4>
           <p>{event.description}</p>
 
+          <h4>Speakers:</h4>
+          {event.speakers && event.speakers.length > 0 ? (
+            <div>
+              {event.speakers.map((spk, index) => (
+                <div>
+                  <img src={spk.image}
+                  alt={spk.name || spk}
+                  className="img-fluid rounded-circle mb-2"
+                  style={{ width: "120px", height: "120px", objectFit: "cover" }}
+                  />
+                  <p>{spk.name || spk}</p>
+                </div>
+              ))}
+            </div>
+          ): (
+            <p>Not Announced</p>
+          )
+        }
           <h4>Additional Information</h4>
-          <p>
-            <strong>Speakers: </strong>
-            {event.speakers && event.speakers.length > 0 ? (
-              <ul>
-                {event.speakers.map((spk, index) => (
-                  <li key={index}>{spk}</li>
-                ))}
-              </ul>
-            ) : (
-              "Not announced"
-            )}
-          </p>
           <p>
             <strong>Dress Code: </strong>
             {event.dressCode || "Casual"}
