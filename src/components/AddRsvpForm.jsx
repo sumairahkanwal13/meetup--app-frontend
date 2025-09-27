@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const AddRsvp = ({ eventsId }) => {
+const AddRsvp = ({ eventId }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -21,7 +21,7 @@ const AddRsvp = ({ eventsId }) => {
     event.preventDefault();
     try {
       const response = await fetch(
-        `https://meetup-app-orcin.vercel.app/events/${eventsId}/rsvp`,
+        `https://meetup-app-orcin.vercel.app/events/${eventId}/rsvp`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },

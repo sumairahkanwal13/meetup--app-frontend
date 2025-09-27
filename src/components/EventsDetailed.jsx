@@ -94,7 +94,7 @@ const EventDetails = () => {
               {event.venue}
             </p>
             
-            <AddRsvp eventsId={eventsId} />
+            <AddRsvp eventId={id} />
           </div>
         </div>
       </div>
