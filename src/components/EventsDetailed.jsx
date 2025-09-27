@@ -3,9 +3,9 @@ import useFetch from "../useFetch";
 import AddRsvp from "./AddRsvpForm";
 
 const EventDetails = () => {
-  const { eventsId } = useParams();
+  const { id } = useParams();
   const { data: event, loading, error } = useFetch(
-    `https://meetup-app-orcin.vercel.app/events/${eventsId}`
+    `https://meetup-app-orcin.vercel.app/events/${id}`
   );
 
   if (loading) return <p>Loading....</p>;

@@ -66,15 +66,15 @@ const AddRsvp = ({ eventsId }) => {
       />
       <br /><br />
 
-      <label>
-        Attending:
+      <label>Attending:</label>
+      <br />
         <input
           type="checkbox"
           name="attending"
           checked={formData.attending}
           onChange={handleChange}
         />
-      </label>
+      
       <br /><br />
 
       <button type="submit" className="btn btn-primary">
