@@ -94,10 +94,6 @@ const EventDetails = () => {
               {event.venue}
             </p>
             
-            <p>
-              <strong>Organizer: </strong>{event.organizer}
-              </p>
-
             <AddRsvp eventId={id} />
           </div>
         </div>
