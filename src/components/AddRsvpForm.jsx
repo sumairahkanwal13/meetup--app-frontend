@@ -20,13 +20,11 @@ const AddRsvp = ({eventsId}) =>{
                     body: JSON.stringify({name, email})
                 });
 
-                if(response.ok){
-                    setMessage("RSVP Successfully!")
-                    setName("")
-                    setEmail("")
-                }else{
-                    setMessage("Failed to RSVP. Please try again.")
+                if(!response.ok){
+                    setMessage("Failed to add Rsvp")   
                 }
+                const data = await response.json()
+                console.log("RSVP added successfully!.",data)
         }catch(error){
             console.log(error)
         }
