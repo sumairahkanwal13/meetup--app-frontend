@@ -48,6 +48,7 @@ const AddRsvp = ({ eventId }) => {
       {message && <p>{message}</p>}
 
       <label>Name:</label>
+      <br />
       <input
         name="name"
         value={formData.name}
@@ -57,6 +58,7 @@ const AddRsvp = ({ eventId }) => {
       <br /><br />
 
       <label>Email:</label>
+      <br />
       <input
         type="email"
         name="email"

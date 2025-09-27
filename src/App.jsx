@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<EventList />} />
           <Route path="/events/:id" element={<EventDetails />} />
-          <Route path='/events/:eventsId/rsvp' element={<AddRsvp/>} />
+          <Route path='/events/:eventId/rsvp' element={<AddRsvp/>} />
         </Routes> 
       </main>
       <Footer />

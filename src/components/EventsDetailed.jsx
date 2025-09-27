@@ -79,7 +79,7 @@ const EventDetails = () => {
 
         
         <div className="col-md-4 mt-3 mt-md-0">
-          <div className="card shadow p-4 sticky-top mt-4">
+          <div className="card shadow p-4 sticky-top mt-5">
             <h4>{event.price ? `$${event.price}` : "Free"}</h4>
             <p>
               <strong>Date: </strong>
